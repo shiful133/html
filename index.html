@@ -18,6 +18,7 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        background-color: #043a12;
       }
       table {
         border-collapse: collapse;
@@ -36,39 +37,39 @@
       }
 
       .calculator {
-  width: 300px; /* adjust the width as per your preference */
-  background-color: #f2f2f2;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-}
+        width: auto; /* adjust the width as per your preference */
+        background-color: #f2f2f2;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+      }
 
-#result {
-  width: 100%;
-  height: 40px;
-  font-size: 20px;
-  text-align: right;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+      #result {
+        width: 100%;
+        height: 40px;
+        font-size: 20px;
+        text-align: right;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
 
-button {
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  background-color: #076817;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  cursor: pointer;
-}
+      button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        background-color: #076817;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
 
-button:hover {
-  background-color: #043a12;
-}
+      button:hover {
+        background-color: #043a12;
+      }
     </style>
   </head>
   <body>
@@ -153,7 +154,7 @@ button:hover {
       </p>
 
       <div class="calculator">
-        <input type="text" id="result" disabled>
+        <input type="text" id="result" disabled />
         <button onclick="clearResult()">C</button>
         <button onclick="deleteLast()">DEL</button>
         <button onclick="performOperation('/')">/</button><br />
@@ -175,8 +176,6 @@ button:hover {
         <button onclick="calculateSquareRoot()">√</button>
       </div>
     </div>
-
-    
 
     <script>
       function appendToResult(value) {
@@ -222,22 +221,21 @@ button:hover {
       }
 
       function calculateSquareRoot() {
-    // Get input value
-    var number = document.getElementById("result").value;
-  
-    // Check if the input is a valid number
-    if (isNaN(number)) {
-        document.getElementById("result").value = "";
-        return;
-    }
-  
-    // Calculate the square root using the Math.sqrt() function
-    var squareRoot = Math.sqrt(number);
-  
-    // Display the result
-    document.getElementById("result").value = squareRoot;
-}
+        // Get input value
+        var number = document.getElementById("result").value;
 
+        // Check if the input is a valid number
+        if (isNaN(number)) {
+          document.getElementById("result").value = "";
+          return;
+        }
+
+        // Calculate the square root using the Math.sqrt() function
+        var squareRoot = Math.sqrt(number);
+
+        // Display the result
+        document.getElementById("result").value = squareRoot;
+      }
     </script>
   </body>
 </html>
