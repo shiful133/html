@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="" />
     <style>
       body {
-        margin: auto;
+        margin: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #043a12;
+        background-color: #d5e6d9;
       }
       p {
         text-align: justify;
@@ -35,11 +35,12 @@
       }
       #centerContents {
         text-align: center;
-        width: 300px;
+        max-width: 800px;
+        align-items: center;
       }
 
       .calculator {
-        width: auto; /* adjust the width as per your preference */
+        width: 300px; /* adjust the width as per your preference */
         background-color: #f2f2f2;
         border: 2px solid #ccc;
         border-radius: 5px;
@@ -72,6 +73,23 @@
       button:hover {
         background-color: #043a12;
       }
+
+      .dark-green-button {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .dark-green-button:hover {
+            background-color: green;
+            color: #ccc;
     </style>
   </head>
   <body>
@@ -86,7 +104,7 @@
 
     <div id="centerContents">
       <h1 style="text-align: center">
-        <span style="color: #16eee0">Know Your Soil</span>
+        <span style="color: #0b6835">Know Your Soil</span>
       </h1>
       <p>
         Understanding soil is crucial for sustainable 
@@ -153,96 +171,12 @@
         </tr>
       </table>
 
-      <p>
         <img
           style="display: block; margin-left: auto; margin-right: auto"
           src="resources/srdi_logo.png"
         />
-      </p>
 
-      <div class="calculator">
-        <input type="text" id="result" disabled />
-        <button onclick="clearResult()">C</button>
-        <button onclick="deleteLast()">DEL</button>
-        <button onclick="performOperation('/')">/</button><br />
-        <button onclick="appendToResult('7')">7</button>
-        <button onclick="appendToResult('8')">8</button>
-        <button onclick="appendToResult('9')">9</button>
-        <button onclick="performOperation('*')">*</button><br />
-        <button onclick="appendToResult('4')">4</button>
-        <button onclick="appendToResult('5')">5</button>
-        <button onclick="appendToResult('6')">6</button>
-        <button onclick="performOperation('-')">-</button><br />
-        <button onclick="appendToResult('1')">1</button>
-        <button onclick="appendToResult('2')">2</button>
-        <button onclick="appendToResult('3')">3</button>
-        <button onclick="performOperation('+')">+</button><br />
-        <button onclick="appendToResult('0')">0</button>
-        <button onclick="appendToResult('.')">.</button>
-        <button onclick="calculateResult()">=</button>
-        <button onclick="calculateSquareRoot()">√</button>
-      </div>
+        <a href="calculator.html" class="dark-green-button">Calculator</a>
     </div>
-
-    <script>
-      function appendToResult(value) {
-        document.getElementById("result").value += value;
-      }
-
-      function clearResult() {
-        document.getElementById("result").value = "";
-      }
-
-      function deleteLast() {
-        var currentResult = document.getElementById("result").value;
-        document.getElementById("result").value = currentResult.slice(0, -1);
-      }
-
-      function performOperation(operator) {
-        var currentResult = document.getElementById("result").value;
-
-        if (currentResult.length > 0) {
-          if (
-            ["+", "-", "*", "/"].includes(
-              currentResult[currentResult.length - 1]
-            )
-          ) {
-            document.getElementById("result").value =
-              currentResult.slice(0, -1) + operator;
-          } else {
-            document.getElementById("result").value += operator;
-          }
-        }
-      }
-
-      function calculateResult() {
-        var currentResult = document.getElementById("result").value;
-
-        try {
-          var result = eval(currentResult);
-          document.getElementById("result").value = result;
-        } catch (error) {
-          // Handle error
-          document.getElementById("result").value = "Error";
-        }
-      }
-
-      function calculateSquareRoot() {
-        // Get input value
-        var number = document.getElementById("result").value;
-
-        // Check if the input is a valid number
-        if (isNaN(number)) {
-          document.getElementById("result").value = "";
-          return;
-        }
-
-        // Calculate the square root using the Math.sqrt() function
-        var squareRoot = Math.sqrt(number);
-
-        // Display the result
-        document.getElementById("result").value = squareRoot;
-      }
-    </script>
   </body>
 </html>
